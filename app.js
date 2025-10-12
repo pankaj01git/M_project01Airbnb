@@ -23,6 +23,7 @@ async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
 };
 
+//home page
 app.get("/listings", async (req, res) => {
    const allListings = await Listing.find({});
    res.render("listings/index.ejs", {allListings});
