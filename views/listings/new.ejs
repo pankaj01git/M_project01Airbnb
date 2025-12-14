@@ -3,10 +3,10 @@
     <div class="col-8 offset-2">
         <br>
         <h2>Create new listing</h2>
-        <form method="post" action="/listing" class="needs-validation" novalidate >
+        <form method="post" action="/listings" class="needs-validation" novalidate>
             <div class="mb-3">
                 <lable for="title" class="form-label">Title</lable>
-                <input name="listing[title]" placeholde="Add a catchy title" type="text" class="form-control" required/>
+                <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
                 <div class="valid-feedback">Title looks good!</div>
             </div>
             <div class="mb-3">
@@ -31,7 +31,6 @@
                     <div class="invalid-feedback">Please enter the country name</div>
                 </div>
             </div>
-            
             <div class="mb-3">
                 <lable for="location" class="form-label">Location</lable>
                 <input name="listing[location]" placeholder="Uttarpradesh, Azamgarh" type="text" class="form-control" required/>
@@ -42,4 +41,3 @@
         </form>
     </div>
 </div>
-<script src="/js/script.js"></script>
