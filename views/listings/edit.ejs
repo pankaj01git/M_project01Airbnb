@@ -2,7 +2,7 @@
 <div class="row mt-3">
     <div class="col-8 offset-2">
     <h3>edit ypur listing</h3>
-    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation">
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
 
         <div class="mb-3">
             <lable for="title" class="form-level" >Title</lable>
@@ -15,8 +15,12 @@
             <div class="invalid-feedback">please enter a short description</div>
         </div>
         <div class="mb-3">
-            <lable for="image" class="form-level" >Image Link</lable>
-            <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control" required/>
+            Original Listing Image <br>
+            <img src="<%= originalImageUrl %>"/>
+        </div>
+        <div class="mb-3">
+            <lable for="image" class="form-level" >Upload New Image</lable>
+            <input name="listing[image]" type="file" class="form-control"/>
             <div class="invalid-feedback">please enter a vilid link</div>
         </div>
         <div class="row">

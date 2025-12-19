@@ -28,7 +28,11 @@ module.exports.loginForm = (req, res) => {
 
 module.exports.login = async(req, res) => {
     req.flash("success", "Welcome back to wanderlust");
-    let redirectUrl = res.locals.redirectUrl || "/listings";
+    let redirectUrl ="/listings";
+    if(res.locals.redirectUrl){
+        const fullUrl = res.locals.redirectUrl;
+        redirectUrl = fullUrl.split('/reviews')[0];
+    }
     res.redirect(redirectUrl);
 };
 
