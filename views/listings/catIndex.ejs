@@ -41,47 +41,47 @@
 
     <div id="filters">
         <div class="filter">
-            <div><a href="listings/filter/Trending" class="category-link"><i class="fa-solid fa-fire"></i></a></div>
+            <div><a href="Trending" class="category-link"><i class="fa-solid fa-fire"></i></a></div>
             <p>Trending</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Rooms" class="category-link"><i class="fa-solid fa-bed"></i></a></div>
+            <div><a href="Rooms" class="category-link"><i class="fa-solid fa-bed"></i></a></div>
             <p>Rooms</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Iconic Cities" class="category-link"><i class="fa-solid fa-mountain-city"></i></a></div>
+            <div><a href="Iconic Cities" class="category-link"><i class="fa-solid fa-mountain-city"></i></a></div>
             <p>Iconic Cities</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Mountains" class="category-link"><i class="fa-solid fa-mountain"></i></a></div>
+            <div><a href="Mountains" class="category-link"><i class="fa-solid fa-mountain"></i></a></div>
             <p>Mountains</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Castles" class="category-link"><i class="fa-brands fa-fort-awesome"></i></a></div>
+            <div><a href="Castles" class="category-link"><i class="fa-brands fa-fort-awesome"></i></a></div>
             <p>Castles</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Amazing Pools" class="category-link"><i class="fa-solid fa-person-swimming"></i></a></div>
+            <div><a href="Amazing Pools" class="category-link"><i class="fa-solid fa-person-swimming"></i></a></div>
             <p>Amazing pools</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Camping" class="category-link"><i class="fa-solid fa-campground"></i></a></div>
+            <div><a href="Camping" class="category-link"><i class="fa-solid fa-campground"></i></a></div>
             <p>Camping</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Farms" class="category-link"><i class="fa-solid fa-cow"></i></a></div>
+            <div><a href="Farms" class="category-link"><i class="fa-solid fa-cow"></i></a></div>
             <p>Farms</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Arctic" class="category-link"><i class="fa-solid fa-snowflake"></i></a></div>
+            <div><a href="Arctic" class="category-link"><i class="fa-solid fa-snowflake"></i></a></div>
             <p>Arctic</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Domes" class="category-link"><i class="fa-solid fa-igloo"></i></a></div>
+            <div><a href="Domes" class="category-link"><i class="fa-solid fa-igloo"></i></a></div>
             <p>Domes</p>
         </div>
         <div class="filter">
-            <div><a href="listings/filter/Boats" class="category-link"><i class="fa-solid fa-ship"></i></a></div>
+            <div><a href="Boats" class="category-link"><i class="fa-solid fa-ship"></i></a></div>
             <p>Boats</p>
         </div>
         <div class="tax-toggle">
@@ -92,7 +92,7 @@
         </div>
     </div>
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-    <% for(let list of allListings) { %>
+    <% for(let list of catListings) { %>
     <a href="/listings/<%= list._id %>" class="listing-link">
         <div class="card col listing-card">
             <img src="<%= list.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem">

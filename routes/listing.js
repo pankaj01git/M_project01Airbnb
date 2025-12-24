@@ -16,6 +16,8 @@ router.route("/")
 //new route
 router.get("/add", isLoggedIn, listingController.newform);
 
+router.get("/filter/:category", wrapAsync(listingController.catIndex));
+
 router.route("/:id")
 .get(wrapAsync(listingController.showListing))
 .put(isOwner, isLoggedIn, validateListing, upload.single('listing[image]'), wrapAsync(listingController.updateListing))
