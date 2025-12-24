@@ -27,6 +27,8 @@ app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const dbUrl = process.env.ATLASDB_URL;
+
 const store = mongoStore.createKrupteinAdapter({
     mongoUrl: dbUrl,
     crypto: {
@@ -49,7 +51,7 @@ const sessionOptions = {
     httpsOnly: true,
 };
 
-const dbUrl = process.env.ATLASDB_URL;
+
 
 main().then((res) => {
     console.log("connection successful");
