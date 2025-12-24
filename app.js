@@ -28,11 +28,12 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const dbUrl = process.env.ATLASDB_URL;
+const secret = process.env.SECRET;
 
 const store = mongoStore.createKrupteinAdapter({
     mongoUrl: dbUrl,
     crypto: {
-        secret: process.env.SECRET,
+        secret: secret,
     },
     touchAfter: 24*3600,
 });
@@ -43,15 +44,13 @@ store.on("error", () => {
 
 const sessionOptions = {
     store,
-    secret: process.env.SECRET,
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpsOnly: true,
 };
-
-
 
 main().then((res) => {
     console.log("connection successful");
