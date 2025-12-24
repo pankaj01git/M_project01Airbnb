@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 const ejsMate = require("ejs-mate");
 const expressError = require("./utils/expressError.js");
 const session = require("express-session");
-const mongoStore = require("connect-mongo");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -28,12 +28,11 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const dbUrl = process.env.ATLASDB_URL;
-const secret = process.env.SECRET;
 
-const store = mongoStore.create({
+const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret: secret,
+        secret: process.env.SECRET,
     },
     touchAfter: 24*3600,
 });
@@ -44,7 +43,7 @@ store.on("error", () => {
 
 const sessionOptions = {
     store,
-    secret: secret,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
