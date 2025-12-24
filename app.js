@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 const dbUrl = process.env.ATLASDB_URL;
 const secret = process.env.SECRET;
 
-const store = mongoStore.createKrupteinAdapter({
+const store = mongoStore.create()({
     mongoUrl: dbUrl,
     crypto: {
         secret: secret,
