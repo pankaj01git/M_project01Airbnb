@@ -99,7 +99,7 @@ app.use("/listings/:id/reviews", reviews);
 
 app.use("/", user);
 
-app.all("(.*)", (req, res, next) => {
+app.all("/*splat", (req, res, next) => {
     next(new expressError(404, "page not found!"));
 });
 
