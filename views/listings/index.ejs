@@ -1,40 +1,28 @@
 <% layout("/layouts/boilerplate") %>
     
 <style>
-    #filters {
-        display: flex;
-        align-items: center;
-        padding: 1rem 0;
+    /* --- SHARED & DESKTOP STYLES (Keep yours as is) --- */
+    #filters { 
+        display: flex; 
+        align-items: center; 
+        padding: 1rem 0; 
     }
-
-    .filter-container {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
+    .filter-container { 
+        display: flex; 
+        align-items: center; 
+        flex-grow: 1; 
     }
-
-    .filter {
-        text-align: center;
-        margin-right: 2rem;
-        opacity: 0.7;
-        transition: 0.2s;
-        flex: 0 0 auto;
+    .filter { 
+        text-align: center; 
+        margin-right: 2rem; 
+        opacity: 0.7; 
+        flex: 0 0 auto; 
     }
-
-    .filter:hover {
-        opacity: 1;
-        cursor: pointer;
+    .tax-info { 
+        display: none; 
     }
-
-    .filter p {
-        font-size: 0.8rem;
-        margin: 0;
-    }
-
-    .tax-info {
-        display: none;
-    }
-
+    
+    /* Desktop Toggle Style */
     .tax-toggle {
         border: 1px solid black;
         border-radius: 1rem;
@@ -43,84 +31,69 @@
         margin-left: 2rem;
         display: flex;
         align-items: center;
-        white-space: nowrap;
     }
 
+    /* --- MOBILE ONLY STYLES --- */
     @media (max-width: 768px) {
-        /* Sticky Navbar Fix */
-        .navbar > .container-fluid {
-            display: flex !important;
-            flex-wrap: nowrap !important;
-            justify-content: space-between;
-        }
+        /* 1. Navbar: Keep it single row, hide the redundant link */
+        .nav-airbnb-home { display: none !important; } 
 
-        .navbar-toggler, .search-btn span {
-            display: none !important;
-        }
-
-        /* Sticky Filter Bar */
         #filters {
             position: sticky;
-            top: 66px; /* Adjust based on your navbar height */
+            top: 66px; 
             z-index: 1000;
             background: white;
+            display: block; /* Change to block to stack icons above the controls */
             padding: 0.5rem 10px;
             border-bottom: 1px solid #eee;
-            flex-wrap: nowrap; /* Keeps icons and toggle on one line */
-            margin-top: 0;
         }
 
-        /* Horizontal Icon Scroll */
+        /* 2. Icons Row */
         .filter-container {
+            display: flex;
             overflow-x: auto;
-            flex-wrap: nowrap;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
+            white-space: nowrap;
+            scrollbar-width: none;
+            margin-bottom: 10px;
+        }
+        .filter-container::-webkit-scrollbar { display: none; }
+        .filter { margin-right: 1.2rem; margin-top: 0; }
+        .filter p { font-size: 0.65rem; }
+
+        /* 3. New Controls Row (Airbnb Link + Toggle side by side) */
+        .mobile-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding-top: 5px;
         }
 
-        .filter-container::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-
-        .filter {
-            margin-right: 1.2rem;
-            margin-top: 0;
-        }
-
-        .filter p {
-            font-size: 0.65rem;
-        }
-
-        /* Fixed Toggle Bar on Mobile */
-        .tax-toggle {
-            margin-left: 5px;
-            height: 2.5rem;
-            padding: 0 0.8rem;
-            font-size: 0.7rem;
+        .mobile-airbnb-btn {
             border: 1px solid #ccc;
-            flex-shrink: 0; /* Prevents toggle from getting squished */
-            background: white;
+            border-radius: 50px;
+            padding: 5px 15px;
+            font-size: 0.75rem;
+            color: #222;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
-        /* 2-Column Image Grid */
-        .listing-card {
-            margin-bottom: 1rem !important;
-            border: none;
+        .tax-toggle {
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            height: 2.2rem;
+            padding: 0 10px;
+            font-size: 0.7rem;
+            flex-grow: 1;
+            justify-content: center;
         }
+        
+        .form-check-label { margin-right: 5px; }
 
-        .card-img-top {
-            height: 11rem !important; /* Proper height for 2 columns */
-            border-radius: 1rem !important;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 0.5rem 0 !important;
-        }
-
-        .card-text b {
-            font-size: 0.85rem;
-        }
+        /* 4. Grid Adjustment */
+        .card-img-top { height: 11rem !important; border-radius: 1rem !important; }
     }
 </style>
 
