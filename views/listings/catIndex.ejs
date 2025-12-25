@@ -1,7 +1,6 @@
 <% layout("/layouts/boilerplate") %>
 
 <style>
-    /* --- DESKTOP STYLES --- */
     #filters {
         display: flex;
         align-items: center;
@@ -13,6 +12,13 @@
         align-items: center;
         flex-grow: 1;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .filter-container::-webkit-scrollbar {
+        display: none;
     }
 
     .filter {
@@ -37,9 +43,7 @@
         display: none;
     }
 
-    /* --- MOBILE STYLES (Max-width: 768px) --- */
     @media (max-width: 768px) {
-        /* Align Button and Toggle side-by-side */
         .mobile-action-bar {
             display: flex !important;
             justify-content: space-between;
@@ -61,7 +65,6 @@
             margin-bottom: 0;
         }
 
-        /* Adjust icon spacing for mobile */
         .filter {
             margin-right: 1.2rem;
         }
@@ -121,23 +124,12 @@
         </div>
         <div class="tax-toggle">
             <div class="form-check-reverse form-switch">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
-        </div>
-        </div>
-    </div>
-
-<div id="filters">
-    <div class="filter-container">
-        </div>
-
-    <div class="tax-toggle d-none d-md-flex">
-        <div class="form-check-reverse form-switch">
             <input class="form-check-input tax-switch-input" type="checkbox" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
         </div>
+        </div>
     </div>
-</div>
+
 <div class="container d-md-none my-2">
     <div class="mobile-action-bar" style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
         <a href="/listings/add" class="btn btn-outline-dark btn-sm rounded-pill">Airbnb your home</a>
@@ -171,10 +163,8 @@
 </div>
 
 <script>
-    // 1. Select all checkboxes (both the desktop one and the mobile one)
     let taxSwitches = document.querySelectorAll(".tax-switch-input");
     
-    // 2. Select all the tax info elements inside the listing cards
     let taxInfo = document.getElementsByClassName("tax-info");
 
     taxSwitches.forEach(sw => {
