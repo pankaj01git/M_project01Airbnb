@@ -40,46 +40,67 @@
 
     @media (max-width: 768px) {
         #filters {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
             display: flex;
             flex-wrap: nowrap;
-            overflow-x: auto;
             align-items: center;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #eee;
         }
 
-        #filters::-webkit-scrollbar {
+        .filter-container {
+            display: flex;
+            overflow-x: auto;
+            flex-grow: 1;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            margin-right: 10px;
+        }
+
+        .filters-container::-webkit-scrollbar {
             display: none;
-        }
-
-        #filters {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
         }
 
         .filter {
             text-align: center;
             margin-right: 1.5rem;
-            margin-top: 0.5rem;
             opacity: 0.7;
             flex: 0 0 auto;
         }
         
         .filter p {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
+            margin-bottom: 0;
         }
         
-        .form-switch {
-            border: 1px solid black;
+        .tax-toggle {
+            position: sticky;
+            border: 1px solid #ccc;
             border-radius: 1rem;
-            height: 3.25rem;
-            padding: 1rem;
-            margin-left: auto;
+            height: 2.25rem;
+            padding: 0 1rem;
             display: flex;
             align-items: center;
+            background: white;
             white-space: nowrap;
-            flex-shrink: 0;
         }
+
+        .listing-card {
+            margin-bottom: 1rem !important;
+        }
+
+        .card-img-top {
+            height: 10rem !important;
+            border-radius: 1rem !important;
+        }
+
+        .card-text b {
+            font-size: 0.85rem;
+        }
+
     }
 
 </style>
