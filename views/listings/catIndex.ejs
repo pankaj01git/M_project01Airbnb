@@ -73,49 +73,51 @@
 </style>
 
     <div id="filters">
-        <div class="filter">
-            <div><a href="Trending" class="category-link"><i class="fa-solid fa-fire"></i></a></div>
-            <p>Trending</p>
-        </div>
-        <div class="filter">
-            <div><a href="Rooms" class="category-link"><i class="fa-solid fa-bed"></i></a></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><a href="Iconic Cities" class="category-link"><i class="fa-solid fa-mountain-city"></i></a></div>
-            <p>Iconic Cities</p>
-        </div>
-        <div class="filter">
-            <div><a href="Mountains" class="category-link"><i class="fa-solid fa-mountain"></i></a></div>
-            <p>Mountains</p>
-        </div>
-        <div class="filter">
-            <div><a href="Castles" class="category-link"><i class="fa-brands fa-fort-awesome"></i></a></div>
-            <p>Castles</p>
-        </div>
-        <div class="filter">
-            <div><a href="Amazing Pools" class="category-link"><i class="fa-solid fa-person-swimming"></i></a></div>
-            <p>Amazing pools</p>
-        </div>
-        <div class="filter">
-            <div><a href="Camping" class="category-link"><i class="fa-solid fa-campground"></i></a></div>
-            <p>Camping</p>
-        </div>
-        <div class="filter">
-            <div><a href="Farms" class="category-link"><i class="fa-solid fa-cow"></i></a></div>
-            <p>Farms</p>
-        </div>
-        <div class="filter">
-            <div><a href="Arctic" class="category-link"><i class="fa-solid fa-snowflake"></i></a></div>
-            <p>Arctic</p>
-        </div>
-        <div class="filter">
-            <div><a href="Domes" class="category-link"><i class="fa-solid fa-igloo"></i></a></div>
-            <p>Domes</p>
-        </div>
-        <div class="filter">
-            <div><a href="Boats" class="category-link"><i class="fa-solid fa-ship"></i></a></div>
-            <p>Boats</p>
+        <div class="filter-container">
+            <div class="filter">
+                <div><a href="listings/filter/Trending" class="category-link"><i class="fa-solid fa-fire"></i></a></div>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Rooms" class="category-link"><i class="fa-solid fa-bed"></i></a></div>
+                <p>Rooms</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Iconic Cities" class="category-link"><i class="fa-solid fa-mountain-city"></i></a></div>
+                <p>Iconic Cities</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Mountains" class="category-link"><i class="fa-solid fa-mountain"></i></a></div>
+                <p>Mountains</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Castles" class="category-link"><i class="fa-brands fa-fort-awesome"></i></a></div>
+                <p>Castles</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Amazing Pools" class="category-link"><i class="fa-solid fa-person-swimming"></i></a></div>
+                <p>Amazing pools</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Camping" class="category-link"><i class="fa-solid fa-campground"></i></a></div>
+                <p>Camping</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Farms" class="category-link"><i class="fa-solid fa-cow"></i></a></div>
+                <p>Farms</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Arctic" class="category-link"><i class="fa-solid fa-snowflake"></i></a></div>
+                <p>Arctic</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Domes" class="category-link"><i class="fa-solid fa-igloo"></i></a></div>
+                <p>Domes</p>
+            </div>
+            <div class="filter">
+                <div><a href="listings/filter/Boats" class="category-link"><i class="fa-solid fa-ship"></i></a></div>
+                <p>Boats</p>
+            </div>
         </div>
         <div class="tax-toggle">
             <div class="form-check-reverse form-switch">
@@ -125,6 +127,17 @@
         </div>
     </div>
 
+<div id="filters">
+    <div class="filter-container">
+        </div>
+
+    <div class="tax-toggle d-none d-md-flex">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input tax-switch-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        </div>
+    </div>
+</div>
 <div class="container d-md-none my-2">
     <div class="mobile-action-bar" style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
         <a href="/listings/add" class="btn btn-outline-dark btn-sm rounded-pill">Airbnb your home</a>
