@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
 <style>
-    /* --- SHARED & DESKTOP STYLES --- */
+    /* --- DESKTOP STYLES --- */
     #filters {
         display: flex;
         align-items: center;
@@ -12,28 +12,14 @@
         display: flex;
         align-items: center;
         flex-grow: 1;
+        overflow-x: auto;
     }
 
     .filter {
         text-align: center;
         margin-right: 2rem;
         opacity: 0.7;
-        transition: 0.2s;
         flex: 0 0 auto;
-    }
-
-    .filter:hover {
-        opacity: 1;
-        cursor: pointer;
-    }
-
-    .filter p {
-        font-size: 0.8rem;
-        margin: 0;
-    }
-
-    .tax-info {
-        display: none;
     }
 
     .tax-toggle {
@@ -47,81 +33,41 @@
         white-space: nowrap;
     }
 
+    .tax-info {
+        display: none;
+    }
+
     /* --- MOBILE STYLES (Max-width: 768px) --- */
     @media (max-width: 768px) {
-        /* Sticky Navbar Fix */
-        .navbar > .container-fluid {
+        /* Align Button and Toggle side-by-side */
+        .mobile-action-bar {
             display: flex !important;
-            flex-wrap: nowrap !important;
             justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 0 5px;
         }
 
-        .navbar-toggler, .search-btn span {
-            display: none !important;
-        }
-
-        /* Sticky Filter Bar */
-        #filters {
-            position: sticky;
-            top: 66px; /* Adjust based on your navbar height */
-            z-index: 1000;
+        .tax-toggle-mobile {
+            border: 1px solid #ccc;
+            border-radius: 2rem;
+            padding: 0.4rem 0.8rem;
             background: white;
-            padding: 0.5rem 10px;
-            border-bottom: 1px solid #eee;
-            flex-wrap: nowrap; /* Keeps icons and toggle on one line */
-            margin-top: 0;
+            white-space: nowrap;
         }
 
-        /* Horizontal Icon Scroll */
-        .filter-container {
-            overflow-x: auto;
-            flex-wrap: nowrap;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
+        .tax-toggle-mobile label {
+            font-size: 0.7rem;
+            margin-bottom: 0;
         }
 
-        .filter-container::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-
+        /* Adjust icon spacing for mobile */
         .filter {
             margin-right: 1.2rem;
-            margin-top: 0;
         }
 
         .filter p {
             font-size: 0.65rem;
-        }
-
-        /* Fixed Toggle Bar on Mobile */
-        .tax-toggle {
-            margin-left: 5px;
-            height: 2.5rem;
-            padding: 0 0.8rem;
-            font-size: 0.7rem;
-            border: 1px solid #ccc;
-            flex-shrink: 0; /* Prevents toggle from getting squished */
-            background: white;
-        }
-
-        /* 2-Column Image Grid */
-        .listing-card {
-            margin-bottom: 1rem !important;
-            border: none;
-        }
-
-        .card-img-top {
-            height: 11rem !important; /* Proper height for 2 columns */
-            border-radius: 1rem !important;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 0.5rem 0 !important;
-        }
-
-        .card-text b {
-            font-size: 0.85rem;
         }
     }
 </style>
@@ -178,7 +124,21 @@
         </div>
         </div>
     </div>
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+<div class="container d-md-none my-2">
+    <div class="mobile-action-bar" style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+        <a href="/listings/add" class="btn btn-outline-dark btn-sm rounded-pill">Airbnb your home</a>
+        
+        <div class="tax-toggle-mobile">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input tax-switch-input" type="checkbox" id="mobileTaxSwitch">
+                <label class="form-check-label" style="font-size: 0.7rem;" for="mobileTaxSwitch">Display total after taxes</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-2 mt-3">
     <% for(let list of catListings) { %>
     <a href="/listings/<%= list._id %>" class="listing-link">
         <div class="card col listing-card">
@@ -198,15 +158,24 @@
 </div>
 
 <script>
-    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
-    taxSwitch.addEventListener("click", () => {
-        let taxInfo = document.getElementsByClassName("tax-info");
-        for(info of taxInfo) {
-            if(info.style.display != "inline") {
-                info.style.display = "inline";
-            }else {
-                info.style.display = "none";
+    // 1. Select all checkboxes (both the desktop one and the mobile one)
+    let taxSwitches = document.querySelectorAll(".tax-switch-input");
+    
+    // 2. Select all the tax info elements inside the listing cards
+    let taxInfo = document.getElementsByClassName("tax-info");
+
+    taxSwitches.forEach(sw => {
+        sw.addEventListener("change", (event) => {
+            let isChecked = event.target.checked;
+            taxSwitches.forEach(s => s.checked = isChecked);
+
+            for (let info of taxInfo) {
+                if (isChecked) {
+                    info.style.display = "inline";
+                } else {
+                    info.style.display = "none";
+                }
             }
-        }
-    })
+        });
+    });
 </script>
