@@ -33,6 +33,16 @@
       width: 100%;
     }
 
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 5px 15px;
+      border-radius: 50px;
+      max-width: 300px;
+      margin: 10px auto;
+    }
+
     .navbar-nav {
       flex-direction: row !important;
       gap: 15px;
@@ -40,16 +50,20 @@
     }
 
     .search-input {
-      width: 120px !important;
-      font-size: 0.8rem;
-      border-radius: 20px !important;
+      border: none;
+      outline: none;
+      flex-grow: 1;
     }
 
     .search-btn {
-      background-color: #fe424d !important;
-      color: white !important;
-      border-radius: 50 !important;
-      padding: 5px 10px !important;
+      background-color: #ff385c;
+      color: white;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav-link {
@@ -72,7 +86,7 @@
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
       </div>
-      <div class="navbar-nav ms-auto">
+      <div class="navbar-nav ms-auto search-container">
     <form class="d-flex" role="search" method="GET" action="listings">
         <input class="form-control me-2 search-input" name="search" type="search" placeholder="Search destinations" />
         <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
