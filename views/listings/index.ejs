@@ -44,8 +44,8 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             align-items: center;
-            margin-top: 1rem;
-            padding-bottom: 5px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         #filters::-webkit-scrollbar {
@@ -68,9 +68,21 @@
         .filter p {
             font-size: 0.7rem;
         }
+        
+        .form-switch {
+            border: 1px solid black;
+            border-radius: 1rem;
+            height: 3.25rem;
+            padding: 1rem;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
 
     }
-    
+
 </style>
 
     <div id="filters">

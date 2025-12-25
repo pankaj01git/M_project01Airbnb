@@ -18,6 +18,45 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 1rem;
   }
+
+  @media (max-width: 768px) {
+    .navbar-toggler {
+      display: none !important;
+    }
+
+    .collapse.navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+      justify-content: space-between;
+      align-items: auto;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-nav {
+      flex-direction: row !important;
+      gap: 15px;
+      margin: 0;
+    }
+
+    .search-input {
+      width: 120px !important;
+      font-size: 0.8rem;
+      border-radius: 20px !important;
+    }
+
+    .search-btn {
+      background-color: #fe424d !important;
+      color: white !important;
+      border-radius: 50 !important;
+      padding: 5px 10px !important;
+    }
+
+    .nav-link {
+      padding: 0 5px !important;
+      font-size: 0.8rem;
+    }
+  }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
