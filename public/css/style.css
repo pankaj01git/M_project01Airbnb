@@ -117,8 +117,12 @@ body {
 @media (max-width: 768px) {
     #map {
         height: 200px;
-        width: 40px;
+        width: 150px;
         border: 1px solid #ddd;
         border-radius: 8px;
+    }
+
+    .card-body p {
+        font-size: 1rem;
     }
 }

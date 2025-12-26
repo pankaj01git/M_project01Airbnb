@@ -3,11 +3,11 @@
     const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
 </script>
 <div class="row mt-3">
-    <div class="col-8 offset-3">
+    <div class="col-12 col-md-8 offset-md-3">
         <h3> <%= listing.title %></h3>
     </div>
 
-<div class="card col-6 offset-3 show-card listing-card">
+<div class="card col-12 col-md-6 offset-md-3 show-card listing-card">
   <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
     <div class="card-body">
         <p class="card-text">Owned by
@@ -33,15 +33,15 @@
 </div>
     <br>
     <% if(currUser && listing.Owner._id.equals(currUser.id)) {%>
-    <div class="btns">
-        <a href="/listings/<%= listing._id %>/edit " class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+    <div class="btns d-flex md-3">
+        <a href="/listings/<%= listing._id %>/edit " class="btn btn-dark col-4 col-md-1 offset-md-3 edit-btn">Edit</a>
         <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-            <button class="btn btn-dark offset-5">Delete</button>
+            <button class="btn btn-dark offset-2 offset-md-5">Delete</button>
         </form>
     </div>
     <% } %>
     
-    <div class="col-8 offset-3 mb-3">
+    <div class="col-12 col-md-8 offset-md-3 mb-3">
         <% if(currUser) { %>
             <hr>
         <h5>Leave a review</h5>
@@ -91,7 +91,7 @@
         </div>
         <% } %>
     </div>
-        <div class="col-8 offset-3 mb-3">
+        <div class="col-12 col-md-8 offset-md-3 mb-3">
             <h3>Where you'll be</h3>
             <div id="map"></div>
         </div>
