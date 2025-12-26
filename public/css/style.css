@@ -116,13 +116,9 @@ body {
 
 @media (max-width: 768px) {
     #map {
-        height: 400px;
-        width: 400px;
+        height: 260px;
+        width: 300px;
         border: 1px solid #ddd;
         border-radius: 8px;
-    }
-
-    .index-text p {
-        font-size: 10px;
     }
 }
