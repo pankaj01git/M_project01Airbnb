@@ -113,3 +113,12 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+    #map {
+        height: 200px;
+        width: 40px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+}

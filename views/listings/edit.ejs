@@ -29,11 +29,29 @@
             <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required/>
             <div class="invalid-feedback">please enter a valid price</div>
         </div>
-        <div class="mb-3 clo-md-8">
+            <div class="mb-3 col-md-8">
+                    <lable for="category" class="form-label">Choose category</lable>
+                    <input name="listing[category]" placeholder="Trending" type="String" class="form-control" list="category"/>
+                    <datalist id="category">
+                        <option value="Trending">
+                        <option value="Rooms">
+                        <option value="Iconic Cities">
+                        <option value="Mountains">
+                        <option value="Castles">
+                        <option value="Amazing Pools">
+                        <option value="Camping">
+                        <option value="Farms">
+                        <option value="Arctic">
+                        <option value="Domes">
+                        <option value="Boats">
+                    </datalist>
+            </div>
+        </div>
+        <div class="row">
+        <div class="mb-3">
             <lable for="country" class="form-level" >Country</lable>
             <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required/>
             <div class="invalid-feedback">please enter a valid country</div>
-        </div>
         </div>
         <div class="mb-3">
             <lable for="location" class="form-level" >Location</lable>
