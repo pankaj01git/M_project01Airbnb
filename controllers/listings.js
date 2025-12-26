@@ -84,7 +84,28 @@ module.exports.createListing = async(req, res) =>{
 
  module.exports.updateListing = async (req, res) => {
      let {id} = req.params;
-     let listing = await Listing.findByIdAndUpdate(id ,{...req.body.listing});
+     let listing = await Listing.findById(id);
+
+    const address = req.body.listing.location;
+
+    const data = await opencage.geocode({ q: address, key: apiKey});
+    
+    
+    if (data && data.results && data.results.length > 0) {
+        const place = data.results[0];
+        listing.geometry = {
+            type: "Point",
+            coordinates: [place.geometry.lng, place.geometry.lat]
+        }
+    }else {
+        listing.geometry = {
+            type: "Point",
+            coordinates: [0, 0]
+        }
+    }
+
+    await listing.save();
+
      if(typeof req.file !== "undefined"){
          let url = req.file.path;
          let filename = req.file.filename;
